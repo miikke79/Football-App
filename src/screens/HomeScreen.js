@@ -9,7 +9,10 @@ export default function HomeScreen() {
       <Image
         source={require("../../assets/scotland_logo.png")}
         style={styles.pictures}
-      />  
+      />
+      <View>
+      <Text style={styles.text}>SCOTLAND STATS</Text>
+      </View>
     </View>
  );
 }
@@ -28,6 +31,17 @@ export default function HomeScreen() {
     height:200,
     borderColor:'#d35647',
     resizeMode:'contain',
+  },
+
+  text: {
+    fontSize:30,
+    color:'white',
+  },
+
+  textContainer: {
+    flex: 1,
+    backgroundColor: '#0C2340',
+    borderTop: 4,
   },
 
  });
