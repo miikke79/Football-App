@@ -13,6 +13,7 @@ export default function HomeScreen() {
       <View>
       <Text style={styles.text}>SCOTLAND STATS</Text>
       </View>
+      <StatusBar style="light" />
     </View>
  );
 }

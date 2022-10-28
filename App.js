@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { NavigationContainer, DefaultTheme, DarkTheme} from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer, DarkTheme} from '@react-navigation/native';
 import { createBottomTabNavigator } from'@react-navigation/bottom-tabs';
 import HomeScreen from'./src/screens/HomeScreen';
 import LoginScreen from'./src/screens/LoginScreen';
@@ -39,7 +40,9 @@ export default function App() {
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Stats" component={LoginScreen} />
       </Tab.Navigator>
+      <StatusBar style="light" />
     </NavigationContainer>
+    
   );
 }
 

@@ -23,11 +23,7 @@ export default function LoginScreen() {
         title='Get Stats'
         onPress={fetchStats}
         />
-         <Button
-        title="Login"
-        onPress={() => navigation.navigate('Login')}
-        />
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </View>
   );
 }
