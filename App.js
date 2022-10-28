@@ -1,45 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, Image, TextInput, Button, View, Alert, FlatList } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from'@react-navigation/bottom-tabs';
+import HomeScreen from'./src/screens/HomeScreen'
+import LoginScreen from'./src/screens/LoginScreen';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
 
-  const [stats, setStats] = useState([]);
-  const [country, setCountry] = useState('');
-
-  const fetchStats = () => 
-  {  fetch('https://app.sportdataapi.com/api/v1/soccer/teams?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&country_id=106')  
-  .then(response => response.json())
-  .then(data => setStats(data.data[1]))
-  .then(console.log(stats.logo))
-  .catch(error => {         Alert.alert('Error', error);   });
-} 
-
   return (
-    <View style={styles.container}>
-      <Text>football stats</Text>
-      <Image source={{ uri: stats.logo }} style={styles.pictures}></Image>
-      <Button
-        title='Get Stats'
-        onPress={fetchStats}
-        />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer style={styles.container}>
+      <Tab.Navigator
+          tabBarOptions={{
+       activeTintColor: '#0C2340',
+       inactiveTintColor: '#0C2340',
+       activeBackgroundColor: 'darkred',
+       inactiveBackgroundColor: 'red',
+  
+    }}
+      >
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Stats" component={LoginScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
-  pictures: {
-    width:190,
-    height:190,
-    borderColor:'#d35647',
-    resizeMode:'contain',
-  },
-});
+container: {
+  color: '#0C2340',
+
+},
+
+})
