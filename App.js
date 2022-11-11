@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer, DarkTheme} from '@react-navigation/native';
 import { createBottomTabNavigator } from'@react-navigation/bottom-tabs';
 import HomeScreen from'./src/screens/HomeScreen';
+import LeagueScreen from'./src/screens/LeagueScreen';
+import Stats from'./src/screens/Stats';
 import LoginScreen from'./src/screens/LoginScreen';
+import SignUpScreen from'./src/screens/SignUpScreen';
 import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -31,26 +34,21 @@ export default function App() {
           iconName = 'md-home';            
         } 
         else if (route.name === 'Stats') {
-          iconName = 'md-settings'; 
-        }  
+          iconName = 'trophy'; 
+        }
+        else if (route.name === 'League') {
+          iconName = 'football'; 
+        }    
           return <Ionicons name={iconName} size={size}color={color} />;
     },
             })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Stats" component={LoginScreen} />
+        <Tab.Screen name="Login" component={SignUpScreen} />
+        <Tab.Screen name="Stats" component={Stats} />
+        <Tab.Screen name="League" component={LeagueScreen} />
       </Tab.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>
     
   );
 }
-
-const styles = StyleSheet.create({
-
-container: {
-  color: '#0C2340',
-
-},
-
-})

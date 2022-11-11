@@ -1,48 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, Image, TextInput, Button, View, Alert, FlatList } from 'react-native';
-
+import { globalStyles } from "../styles/global";
 export default function HomeScreen() {
 
   return (  
-    <View style={styles.container}>
+    <View style={globalStyles.homeContainer}>
       <Image
         source={require("../../assets/scotland_logo.png")}
-        style={styles.pictures}
+        style={globalStyles.homePictures}
       />
       <View>
-      <Text style={styles.text}>SCOTLAND STATS</Text>
+      <Text style={globalStyles.title}>SCOTLAND STATS</Text>
       </View>
       <StatusBar style="light" />
     </View>
  );
 }
-
- const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    backgroundColor: '#0C2340',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  pictures: {
-    width:200,
-    height:200,
-    borderColor:'#d35647',
-    resizeMode:'contain',
-  },
-
-  text: {
-    fontSize:30,
-    color:'white',
-  },
-
-  textContainer: {
-    flex: 1,
-    backgroundColor: '#0C2340',
-    borderTop: 4,
-  },
-
- });
