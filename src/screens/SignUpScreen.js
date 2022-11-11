@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/core'
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { SafeAreaView, Text, View, ScrollView } from 'react-native';
@@ -13,6 +14,7 @@ export default function SignUpScreen() {
   const [passwordAgain, setPasswordAgain] = useState("");
   const [email, setEmail] = useState("");
 
+  const navigation = useNavigation()
 
   const onSignUpPressed = () => {
     auth
@@ -22,6 +24,10 @@ export default function SignUpScreen() {
       console.log(user.email);
     })
     .catch(error => alert(error.message))
+  }
+
+  const onSignInPressed = () => {
+    navigation.navigate("LoginScreen")
   }
 
   return ( 
@@ -34,6 +40,7 @@ export default function SignUpScreen() {
             <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
             <CustomInput placeholder="Repeat Password" value={passwordAgain} setValue={setPasswordAgain} secureTextEntry={true} />
             <CustomButton text="Create Account" onPress={onSignUpPressed} />
+            <CustomButton text="Already have an account? Sign in" type="TERTIARY" onPress={onSignInPressed} />
         </View>
         <StatusBar style="light" />
     </ScrollView> 

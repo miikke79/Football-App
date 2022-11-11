@@ -1,22 +1,19 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer, DarkTheme} from '@react-navigation/native';
-import { createBottomTabNavigator } from'@react-navigation/bottom-tabs';
-import HomeScreen from'./src/screens/HomeScreen';
-import LeagueScreen from'./src/screens/LeagueScreen';
-import Stats from'./src/screens/Stats';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from'./src/screens/LoginScreen';
 import SignUpScreen from'./src/screens/SignUpScreen';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
   return (
     <NavigationContainer theme={DarkTheme}>
-      <Tab.Navigator
+      <Stack.Navigator
           tabBarOptions={{
        activeTintColor: '#0C2340',
        inactiveTintColor: 'gold',
@@ -43,10 +40,9 @@ export default function App() {
     },
             })}
       >
-        <Tab.Screen name="Login" component={SignUpScreen} />
-        <Tab.Screen name="Stats" component={Stats} />
-        <Tab.Screen name="League" component={LeagueScreen} />
-      </Tab.Navigator>
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+      </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>
     
