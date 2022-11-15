@@ -106,6 +106,7 @@ export const globalStyles = StyleSheet.create({
     maxWidth:300,
     borderColor:'#d35647',
     resizeMode:'contain',
+    alignItems: 'center',
   },
 
 });

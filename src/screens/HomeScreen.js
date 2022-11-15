@@ -1,60 +1,21 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/core'
 import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer, DarkTheme} from '@react-navigation/native';
-import { createBottomTabNavigator } from'@react-navigation/bottom-tabs';
-import HomeScreen from'./src/screens/HomeScreen';
-import LeagueScreen from'./src/screens/LeagueScreen';
-import Stats from'./src/screens/Stats';
-import LoginScreen from'./src/screens/LoginScreen';
-import SignUpScreen from'./src/screens/SignUpScreen';
-import Ionicons from '@expo/vector-icons/Ionicons';
-
-
-const Tab = createBottomTabNavigator();
+import { Image, View, Text } from 'react-native';
+import { globalStyles } from "../styles/global";
+import CustomButton from "../components/CustomButton"
 
 export default function HomeScreen() {
 
+    const navigation = useNavigation()
+
+    const onSignOutPressed = () => {
+        navigation.navigate("LoginScreen")
+    }
+
   return (
-    <NavigationContainer theme={DarkTheme}>
-      <Tab.Navigator
-          tabBarOptions={{
-       activeTintColor: '#0C2340',
-       inactiveTintColor: 'gold',
-       activeBackgroundColor: 'gold',
-       inactiveBackgroundColor: '#0C2340',
-  
-    }}
 
-    screenOptions={({route }) => ({
-      headerShown: false,
-      tabBarIcon: ({ focused, color, size }) => {
-        let iconName;            
-        if (route.name === 'Home') 
-        {              
-          iconName = 'md-home';            
-        } 
-        else if (route.name === 'Stats') {
-          iconName = 'trophy'; 
-        }
-        else if (route.name === 'League') {
-          iconName = 'football'; 
-        }    
-          return <Ionicons name={iconName} size={size}color={color} />;
-    },
-            })}
-      >
-        <Tab.Screen name="Login" component={SignUpScreen} />
-        <Tab.Screen name="Stats" component={Stats} />
-        <Tab.Screen name="League" component={LeagueScreen} />
-      </Tab.Navigator>
-      <StatusBar style="light" />
-    </NavigationContainer>
-    
-  );
-} 
-
-/*
-    <View style={globalStyles.homeContainer}>
+     <View style={globalStyles.homeContainer}>
       <Image
         source={require("../../assets/scotland_logo.png")}
         style={globalStyles.homePictures}
@@ -62,9 +23,8 @@ export default function HomeScreen() {
       <View>
       <Text style={globalStyles.title}>SCOTLAND STATS</Text>
       </View>
+      <CustomButton text="Sign Out" type="TERTIARY" onPress={onSignOutPressed} />
       <StatusBar style="light" />
     </View>
- );
+  );
 }
-
-*/

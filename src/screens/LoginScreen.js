@@ -10,7 +10,7 @@ import { auth } from '../utils/firebase';
 
 export default function LoginScreen() {
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigation = useNavigation()
@@ -18,7 +18,7 @@ export default function LoginScreen() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        navigation.navigate("Home")
+        navigation.navigate("Nav")
       }
     })
 
@@ -32,6 +32,7 @@ export default function LoginScreen() {
     .then(userCredentials => {
       const user = userCredentials.user;
       console.log("logged in with: ", user.email);
+      navigation.navigate("Nav")
     })
     .catch(error => alert(error.message))
   }
@@ -48,7 +49,7 @@ export default function LoginScreen() {
             style={globalStyles.loginIcon}
           />
           <View style={globalStyles.loginContainer}>
-            <CustomInput placeholder="Username" value={username} setValue={setUsername} />
+            <CustomInput placeholder="Email" value={email} setValue={setEmail} />
             <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
             <CustomButton text="Sign in" onPress={onSignInPressed} />
             <CustomButton text="Don't have an account? Create one" type="TERTIARY" onPress={onCreatePressed} />
