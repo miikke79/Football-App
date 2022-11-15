@@ -4,18 +4,27 @@ import { StatusBar } from 'expo-status-bar';
 import { Image, View, Text } from 'react-native';
 import { globalStyles } from "../styles/global";
 import CustomButton from "../components/CustomButton"
+import { auth } from '../utils/firebase';
 
 export default function HomeScreen() {
 
     const navigation = useNavigation()
 
     const onSignOutPressed = () => {
-        navigation.navigate("LoginScreen")
+        auth.signOut()
+            .then(() => {
+                navigation.replace("LoginScreen")
+            })    
+            .catch(error => alert(error.message))
     }
 
   return (
 
      <View style={globalStyles.homeContainer}>
+        <View>
+      <Text style={globalStyles.title}>WELCOME</Text>
+      <Text style={globalStyles.title}>{auth.currentUser?.email.toUpperCase()}</Text>
+      </View>
       <Image
         source={require("../../assets/scotland_logo.png")}
         style={globalStyles.homePictures}

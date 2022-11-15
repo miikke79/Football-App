@@ -8,6 +8,8 @@ import LeagueScreen from'./src/screens/LeagueScreen';
 import Stats from'./src/screens/Stats';
 import LoginScreen from'./src/screens/LoginScreen';
 import SignUpScreen from'./src/screens/SignUpScreen';
+import Internationals from'./src/screens/Internationals';
+import TopScorers from'./src/screens/TopScorers';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Stack = createNativeStackNavigator();
@@ -37,8 +39,14 @@ const Tab = createBottomTabNavigator();
         iconName = 'trophy'; 
       }
       else if (route.name === 'League') {
-        iconName = 'football'; 
+        iconName = 'reorder-four-outline'; 
       }    
+      else if (route.name === 'Scorers') {
+        iconName = 'football'; 
+      }  
+      else if (route.name === 'Int') {
+        iconName = 'earth-outline'; 
+      }
         return <Ionicons name={iconName} size={size}color={color} />;
   },
           })}
@@ -46,6 +54,8 @@ const Tab = createBottomTabNavigator();
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="League" component={LeagueScreen} />
         <Tab.Screen name="Stats" component={Stats} />
+        <Tab.Screen name="Scorers" component={TopScorers} />
+        <Tab.Screen name="Int" component={Internationals} />
       </Tab.Navigator>
     );
   }

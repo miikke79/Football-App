@@ -17,17 +17,25 @@ export default function SignUpScreen() {
   const navigation = useNavigation()
 
   const onSignUpPressed = () => {
+    if (password === passwordAgain) {
     auth
     .createUserWithEmailAndPassword(email, password)
     .then(userCredentials => {
       const user = userCredentials.user;
-      console.log(user.email);
     })
     .catch(error => alert(error.message))
   }
+    else {
+      alert("Passwords did not match, try again")
+      setPassword("")
+      setPasswordAgain("")
+    }
+}
+
+
 
   const onSignInPressed = () => {
-    navigation.navigate("LoginScreen")
+    navigation.replace("LoginScreen")
   }
 
   return ( 
@@ -35,7 +43,7 @@ export default function SignUpScreen() {
     <ScrollView>
         <Text style={globalStyles.title}>Create an account</Text>
         <View style={globalStyles.loginContainer}>
-            <CustomInput placeholder="Username" value={username} setValue={setUsername} />
+            <CustomInput placeholder="First Name" value={username} setValue={setUsername} />
             <CustomInput placeholder="Email" value={email} setValue={setEmail} />
             <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
             <CustomInput placeholder="Repeat Password" value={passwordAgain} setValue={setPasswordAgain} secureTextEntry={true} />
