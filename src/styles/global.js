@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-
+import Constants from 'expo-constants';
 export const globalStyles = StyleSheet.create({
 
   // C O N T A I N E R S
@@ -25,6 +25,16 @@ export const globalStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  tableContainerB:{
+      flex: 1,
+      justifyContent: 'center',
+      marginTop: 25,
+      paddingTop: Constants.statusBarHeight,
+      backgroundColor: 'gold',
+      padding: 8,
+    },
+
 
   inputContainer: {
     paddingTop: 50,
