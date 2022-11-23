@@ -7,9 +7,13 @@ export default function LeagueScreen() {
 
   const [stats, setStats] = useState([]);
   const [keyword, setKeyword] = useState('');
+  const [league, setLeague] = React.useState();
+  const [id, setId] = React.useState('106');
+  const [season, setseason] = React.useState('2022');
+  const [tournament, setTournament] = React.useState('Premier League');
 
   const fetchStats = () => 
-  {  fetch('https://app.sportdataapi.com/api/v1/soccer/standings?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=106')  
+  {  fetch('https://app.sportdataapi.com/api/v1/soccer/standings?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id='+{id})  
   .then(response => response.json())
   .then(data => setStats(data.data))
   .then(console.log(stats))

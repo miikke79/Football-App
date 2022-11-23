@@ -18,6 +18,14 @@ export const globalStyles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  tableContainer: {
+    flex: 1,
+    backgroundColor: 'gold',
+    text: 'gold',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   inputContainer: {
     paddingTop: 50,
   },
@@ -45,6 +53,10 @@ export const globalStyles = StyleSheet.create({
     color: "gray",
     fontWeight: "bold",
     fontSize: 16,
+  },
+
+  tableText: {
+    color: "gold",
   },
 
   // I N P U T
