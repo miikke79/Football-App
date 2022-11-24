@@ -26,6 +26,16 @@ export const globalStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  listContainer: {
+    flex: 1,
+    backgroundColor: '#0C2340',
+    color: 'gold',
+    marginTop: 25,
+    paddingTop: Constants.statusBarHeight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   tableContainerB:{
       flex: 1,
       justifyContent: 'center',
