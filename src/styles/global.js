@@ -52,6 +52,13 @@ export const globalStyles = StyleSheet.create({
     borderTop: 4,
   },
 
+  tableSplit: {
+    height: 1,
+    width: "80%",
+    backgroundColor: "#0C2340",
+    marginLeft: "10%"
+  },
+
   //  T E X T S
 
   title: {
@@ -73,8 +80,11 @@ export const globalStyles = StyleSheet.create({
 
   tableText: {
     fontSize:20,
-    color: "#0C2340",
-    marginTop: 25,
+    backgroundColor: '#0C2340',
+    color: "gold",
+    marginTop: 15,
+    marginBottom: 15,
+    borderColor: '#0C2340',
   },
 
   // I N P U T
