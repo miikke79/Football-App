@@ -18,12 +18,8 @@ export const globalStyles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  tableContainer: {
-    flex: 1,
-    backgroundColor: 'gold',
-    text: 'gold',
-    alignItems: 'center',
-    justifyContent: 'center',
+  scrollContainer: {
+    width: '100%',
   },
 
   listContainer: {
@@ -39,10 +35,10 @@ export const globalStyles = StyleSheet.create({
   tableContainerB:{
       flex: 1,
       justifyContent: 'center',
+      alignItems: 'center',
       marginTop: 25,
-      paddingTop: Constants.statusBarHeight,
       backgroundColor: 'gold',
-      padding: 8,
+      width: '100%',
     },
 
 
@@ -76,7 +72,9 @@ export const globalStyles = StyleSheet.create({
   },
 
   tableText: {
-    color: "gold",
+    fontSize:20,
+    color: "#0C2340",
+    marginTop: 25,
   },
 
   // I N P U T
@@ -114,6 +112,17 @@ export const globalStyles = StyleSheet.create({
     width: 200,
     backgroundColor: "#0C2340",
     alignItems: 'center',
+  },
+
+  // T A B L E S
+
+  dataHeader: {
+    flex: 3,
+    justifyContent: 'center',
+  },
+
+  dataTable: {
+    flex: 3,
   },
 
   // I M A G E S
