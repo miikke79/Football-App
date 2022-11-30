@@ -29,11 +29,11 @@ export default function Internationals() {
       <FlatList
         data= {stats}
         renderItem={({item}) =>
-        <View style={{margin: 10}}>
+        <View style={globalStyles.listTextContainer}>
         <Text                onPress={() => {
                 console.log(`selected player id ${item.player_id}`)
-              }} style={{fontSize: 18, fontWeight: 'bold', color: 'gold'}}>{item.firstname} {item.lastname}    {item.age}</Text>
-        {/*<Image source={{ uri: item.img }} style={globalStyles.pictures}></Image>*/}
+              }} style={globalStyles.listText}>{item.firstname} {item.lastname}</Text>
+        <Text style={globalStyles.listText}>{item.age}</Text>
         </View>
       }
        /> 

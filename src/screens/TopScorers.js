@@ -17,7 +17,7 @@ export default function TopScorers() {
 
   return (
     <View style={globalStyles.listContainer}>
-                  <Text style={globalStyles.tableText}>Premier League Top Scorers</Text>
+                  <Text style={globalStyles.tableText}>Scottish Premiership Top Scorers</Text>
             <View
         style={{
           height: 1,
@@ -29,10 +29,11 @@ export default function TopScorers() {
       <FlatList
         data= {stats}
         renderItem={({item}) =>
-        <View style={{margin: 10}}>
-        <Text               onPress={() => {
+        <View style={globalStyles.listTextContainer}>
+        <Text                onPress={() => {
                 console.log(`selected player id ${item.player.player_id}`)
-              }} style={{fontSize: 18, fontWeight: 'bold', color: 'gold'}}>{item.pos}. {item.player.player_name}   {item.goals.overall} Goals</Text>
+              }} style={globalStyles.listTextB}>{item.pos}. {item.player.player_name}</Text>
+        <Text style={globalStyles.listText}>{item.goals.overall}</Text>
         </View>
       }
  /> 

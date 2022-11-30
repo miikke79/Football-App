@@ -23,7 +23,7 @@ export default function HomeScreen() {
      <View style={globalStyles.homeContainer}>
         <View>
       <Text style={globalStyles.title}>WELCOME</Text>
-      <Text style={globalStyles.title}>{auth.currentUser?.email.toUpperCase()}</Text>
+      <Text style={globalStyles.smallText}>{auth.currentUser?.email.toUpperCase()}</Text>
       </View>
       <Image
         source={require("../../assets/scotland_logo.png")}

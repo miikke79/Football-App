@@ -32,6 +32,12 @@ export const globalStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  listTextContainer: {
+    flexDirection: 'row',
+    margin: 10,
+    justifyContent: 'space-between',
+  },
+
   tableContainerB:{
       flex: 1,
       justifyContent: 'center',
@@ -64,6 +70,7 @@ export const globalStyles = StyleSheet.create({
   title: {
     fontSize:30,
     color:'white',
+    marginTop: 15,
   },
 
   touchableText_PRIMARY: {
@@ -103,6 +110,21 @@ export const globalStyles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     borderColor: '#0C2340',
+  },
+
+  listText: {
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    color: 'gold',
+    marginLeft: 20,
+    marginRight: 20,
+  },
+
+  listTextB: {
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    color: 'gold',
+    marginRight: 20,
   },
 
   // I N P U T
