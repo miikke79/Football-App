@@ -5,12 +5,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from'@react-navigation/bottom-tabs';
 import HomeScreen from'./src/screens/HomeScreen';
 import LeagueScreen from'./src/screens/LeagueScreen';
-import Stats from'./src/screens/Stats';
+import Fixtures from'./src/screens/Fixtures';
 import LoginScreen from'./src/screens/LoginScreen';
 import SignUpScreen from'./src/screens/SignUpScreen';
 import Internationals from'./src/screens/Internationals';
 import TopScorers from'./src/screens/TopScorers';
+import Scores from'./src/screens/Scores';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import TeamStats from'./src/screens/TeamStats';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -35,7 +37,7 @@ const Tab = createBottomTabNavigator();
       {              
         iconName = 'md-home';            
       } 
-      else if (route.name === 'Stats') {
+      else if (route.name === 'Fixtures') {
         iconName = 'trophy'; 
       }
       else if (route.name === 'League') {
@@ -44,6 +46,9 @@ const Tab = createBottomTabNavigator();
       else if (route.name === 'Scorers') {
         iconName = 'football'; 
       }  
+      else if (route.name === 'Scores') {
+        iconName = 'pulse-outline'; 
+      } 
       else if (route.name === 'Int') {
         iconName = 'earth-outline'; 
       }
@@ -53,8 +58,9 @@ const Tab = createBottomTabNavigator();
     >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="League" component={LeagueScreen} />
-        <Tab.Screen name="Stats" component={Stats} />
         <Tab.Screen name="Scorers" component={TopScorers} />
+        <Tab.Screen name="Scores" component={Scores} />
+        <Tab.Screen name="Fixtures" component={Fixtures} />
         <Tab.Screen name="Int" component={Internationals} />
       </Tab.Navigator>
     );
@@ -68,6 +74,8 @@ const Tab = createBottomTabNavigator();
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="Nav" component={Nav} options={{ headerShown: false }} />
+        <Stack.Screen name="TeamStats" component={TeamStats} options={{ headerShown: false }} />
+        <Stack.Screen name="LeagueScreen" component={LeagueScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
       <StatusBar style="light" />
     </NavigationContainer>

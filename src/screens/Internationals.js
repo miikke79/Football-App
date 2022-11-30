@@ -12,36 +12,31 @@ export default function Internationals() {
   {  fetch('https://app.sportdataapi.com/api/v1/soccer/players?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&country_id=106')  
   .then(response => response.json())
   .then(data => setStats(data.data))
-  .then(console.log(stats))
   .catch(error => {         Alert.alert('Error', error);   });
   }, [])
 
-  const listSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 1,
-          width: "80%",
-          backgroundColor: "#CED0CE",
-          marginLeft: "10%"
-        }}
-      />
-    );
-  };
-
   return (
     <View style={globalStyles.listContainer}>
+            <Text style={globalStyles.tableText}>Players Eligiable To Represent Scotland</Text>
+            <View
+        style={{
+          height: 1,
+          width: "100%",
+          backgroundColor: "#CED0CE",
+          color: "gold",
+        }}
+      />
       <FlatList
         data= {stats}
         renderItem={({item}) =>
         <View style={{margin: 10}}>
         <Text                onPress={() => {
                 console.log(`selected player id ${item.player_id}`)
-              }} style={{fontSize: 18, fontWeight: 'bold', color: 'gold'}}>{item.firstname} {item.lastname}    {item.birthday}</Text>
+              }} style={{fontSize: 18, fontWeight: 'bold', color: 'gold'}}>{item.firstname} {item.lastname}    {item.age}</Text>
         {/*<Image source={{ uri: item.img }} style={globalStyles.pictures}></Image>*/}
         </View>
       }
-      ItemSeparatorComponent={listSeparator} /> 
+       /> 
       <StatusBar style="light" />
     </View>
   );

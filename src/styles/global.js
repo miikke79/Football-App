@@ -87,6 +87,24 @@ export const globalStyles = StyleSheet.create({
     borderColor: '#0C2340',
   },
 
+  liveText: {
+    fontSize:20,
+    backgroundColor: '#0C2340',
+    color: "lightgreen",
+    marginTop: 15,
+    marginBottom: 15,
+    borderColor: '#0C2340',
+  },
+
+  smallText: {
+    fontSize:10,
+    backgroundColor: '#0C2340',
+    color: "gold",
+    marginTop: 10,
+    marginBottom: 10,
+    borderColor: '#0C2340',
+  },
+
   // I N P U T
 
   inputField: {
@@ -147,6 +165,13 @@ export const globalStyles = StyleSheet.create({
   homePictures: {
     width:200,
     height:200,
+    borderColor:'#d35647',
+    resizeMode:'contain',
+  },
+
+  statsPictures: {
+    width:100,
+    height:100,
     borderColor:'#d35647',
     resizeMode:'contain',
   },

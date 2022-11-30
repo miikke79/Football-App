@@ -3,12 +3,16 @@ import { View, Text, Alert, ScrollView, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { DataTable } from 'react-native-paper';
 import { globalStyles } from '../styles/global';
+import CustomButton from "../components/CustomButton";
+import {useNavigation} from '@react-navigation/core';
 
 export default function LeagueScreen() {
 
   const [standings, setStandings] = useState([]);
   const [standings2, setStandings2] = useState([]);
   const [team, setTeam] = useState('');
+
+  const navigation = useNavigation()
 
   useEffect(() =>
   {  fetch('https://app.sportdataapi.com/api/v1/soccer/standings?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=1975')  
@@ -34,11 +38,9 @@ export default function LeagueScreen() {
         }
       }
         if (teamName.length>0){
-          console.log(teamName)
           return (teamName)
         }
         else {
-          console.log('?')
           return ('?')
         }
   };
@@ -63,7 +65,9 @@ export default function LeagueScreen() {
                 <DataTable.Row
                   key={standing.team_id}
                   onPress={() => {
-                    console.log(`${standing.team_id}`)
+                    navigation.replace('TeamStats', {
+                      params: { team: standing.team_id },
+                    })
                   }}
                 >
             <DataTable.Cell style={globalStyles.dataTable}>{teamStats(standing.team_id)}</DataTable.Cell>
@@ -82,6 +86,9 @@ export default function LeagueScreen() {
                 <DataTable.Row
                   key={standing.team_id}
                   onPress={() => {
+                    navigation.replace('TeamStats', {
+                      params: { team: standing.team_id },
+                    })
                     console.log(`${standing.team_id}`)
                   }}
                 >
