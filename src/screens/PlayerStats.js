@@ -5,9 +5,9 @@ import { globalStyles } from "../styles/global";
 import CustomButton from "../components/CustomButton";
 import {useNavigation} from '@react-navigation/core';
 
-export default function PlayerStats(player) {
+export default function PlayerStats(params) {
 
-  let player_id = player.route.params.params.player;
+  let player_id = params.route.params.params.player;
   const [stats, setStats] = useState([]);
   const [countryStats, setCountryStats] = useState([]);
 
@@ -24,6 +24,7 @@ export default function PlayerStats(player) {
      navigation.replace ('Nav', { screen: 'League', initial: false }) 
   }
 
+if (stats.img!=""){
   return (
     <View style={globalStyles.listContainer}>
       <Image source={{ uri: stats.img }} style={globalStyles.statsPictures}></Image>
@@ -40,4 +41,23 @@ export default function PlayerStats(player) {
     </View>
 
   );
+}
+else {
+    return (
+        <View style={globalStyles.listContainer}>
+          <Image source={require("../../assets/Player.png")} style={globalStyles.statsPictures}></Image>
+          <Text style={globalStyles.tableText}>{stats.firstname} {stats.lastname}</Text>
+          <Text style={globalStyles.mediumText}>Age - {stats.age}</Text>
+          <Text style={globalStyles.smallText}>D.O.B - {stats.birthday}</Text>
+          <Text style={globalStyles.smallText}>Height - {stats.height} cm</Text>
+          <Text style={globalStyles.smallText}>Country - {countryStats.name}</Text>
+          <Text style={globalStyles.smallText}>Continent - {countryStats.continent}</Text>
+          <StatusBar style="light" />
+          <View>
+            <CustomButton text="Back to main" type="TERTIARY" onPress={navigateBack} />
+          </View>
+        </View>
+    
+      );
+}
 }

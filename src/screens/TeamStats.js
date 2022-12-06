@@ -5,9 +5,9 @@ import { globalStyles } from "../styles/global";
 import CustomButton from "../components/CustomButton";
 import {useNavigation} from '@react-navigation/core';
 
-export default function TeamStats(team) {
+export default function TeamStats(params) {
 
-  let team_id = team.route.params.params.team;
+  let team_id = params.route.params.params.team;
   const [stats, setStats] = useState([]);
   const [countryStats, setCountryStats] = useState([]);
 

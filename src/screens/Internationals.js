@@ -33,7 +33,7 @@ export default function Internationals() {
         <View style={globalStyles.listTextContainer}>
         <Text onPress={() => {
                             navigation.replace('PlayerStats', {
-                              params: { player: item.player_id},
+                              params: { player: item.player_id },
                             })
               }} style={globalStyles.listText}>{item.firstname} {item.lastname}</Text>
         <Text style={globalStyles.listText}>{item.age}</Text>
