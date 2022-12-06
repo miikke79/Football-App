@@ -103,12 +103,21 @@ export const globalStyles = StyleSheet.create({
     borderColor: '#0C2340',
   },
 
-  smallText: {
-    fontSize:10,
+  mediumText: {
+    fontSize:16,
     backgroundColor: '#0C2340',
     color: "gold",
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 2,
+    marginBottom: 2,
+    borderColor: '#0C2340',
+  },
+
+  smallText: {
+    fontSize:12,
+    backgroundColor: '#0C2340',
+    color: "gold",
+    marginTop: 2,
+    marginBottom: 2,
     borderColor: '#0C2340',
   },
 

@@ -2,11 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { Text, Image, TextInput, Button, View, Alert, FlatList } from 'react-native';
 import { globalStyles } from "../styles/global";
+import {useNavigation} from '@react-navigation/core';
 
 export default function Internationals() {
 
   const [stats, setStats] = useState([]);
-  const [keyword, setKeyword] = useState('');
+  const navigation = useNavigation()
 
   useEffect(() =>
   {  fetch('https://app.sportdataapi.com/api/v1/soccer/players?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&country_id=106')  
@@ -30,8 +31,10 @@ export default function Internationals() {
         data= {stats}
         renderItem={({item}) =>
         <View style={globalStyles.listTextContainer}>
-        <Text                onPress={() => {
-                console.log(`selected player id ${item.player_id}`)
+        <Text onPress={() => {
+                            navigation.replace('PlayerStats', {
+                              params: { player: item.player_id},
+                            })
               }} style={globalStyles.listText}>{item.firstname} {item.lastname}</Text>
         <Text style={globalStyles.listText}>{item.age}</Text>
         </View>

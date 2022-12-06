@@ -13,6 +13,7 @@ import TopScorers from'./src/screens/TopScorers';
 import Scores from'./src/screens/Scores';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import TeamStats from'./src/screens/TeamStats';
+import PlayerStats from'./src/screens/PlayerStats';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,15 +22,17 @@ const Tab = createBottomTabNavigator();
 
     return (
         <Tab.Navigator
-        tabBarOptions={{
-     activeTintColor: '#0C2340',
-     inactiveTintColor: 'gold',
-     activeBackgroundColor: 'gold',
-     inactiveBackgroundColor: '#0C2340',
-
-  }}
-
-  screenOptions={({route}) => ({
+    screenOptions={({route}) => ({
+    tabBarActiveTintColor: "#0C2340",
+    tabBarInactiveTintColor: "gold",
+    tabBarActiveBackgroundColor: "gold",
+    tabBarInactiveBackgroundColor: "#0C2340",
+    tabBarStyle: [
+      {
+        "display": "flex"
+      },
+      null
+    ],
     headerShown: false,
     tabBarIcon: ({ focused, color, size }) => {
       let iconName;            
@@ -75,6 +78,7 @@ const Tab = createBottomTabNavigator();
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="Nav" component={Nav} options={{ headerShown: false }} />
         <Stack.Screen name="TeamStats" component={TeamStats} options={{ headerShown: false }} />
+        <Stack.Screen name="PlayerStats" component={PlayerStats} options={{ headerShown: false }} />
         <Stack.Screen name="LeagueScreen" component={LeagueScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
       <StatusBar style="light" />
