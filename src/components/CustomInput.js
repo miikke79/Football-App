@@ -1,19 +1,22 @@
-import React from 'react';
-import { Text, View, TextInput } from 'react-native';
+import React from "react";
+import { Text, View, TextInput } from "react-native";
 import { globalStyles } from "../styles/global";
 
-export default function CustomInput({value, setValue, placeholder, secureTextEntry}) {
-
-  return (  
+export default function CustomInput({
+  value,
+  setValue,
+  placeholder,
+  secureTextEntry,
+}) {
+  return (
     <View>
-
-      <TextInput style={globalStyles.inputField} 
-                 value={value} 
-                 onChangeText={setValue} 
-                 placeholder={placeholder}
-                 secureTextEntry={secureTextEntry}
+      <TextInput
+        style={globalStyles.inputField}
+        value={value}
+        onChangeText={setValue}
+        placeholder={placeholder}
+        secureTextEntry={secureTextEntry}
       />
-
     </View>
- );
+  );
 }
