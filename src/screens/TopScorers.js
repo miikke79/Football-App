@@ -33,7 +33,7 @@ export default function TopScorers() {
         <View style={globalStyles.listTextContainer}>
         <Text onPress={() => {
                     navigation.replace('PlayerStats', {
-                      params: { player: item.player.player_id},
+                      params: { player: item.player.player_id, screen: 'Top Scorers'},
                     })
               }} style={globalStyles.listTextB}>{item.pos}. {item.player.player_name}</Text>
         <Text style={globalStyles.listText}>{item.goals.overall}</Text>

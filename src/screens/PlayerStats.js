@@ -8,6 +8,7 @@ import {useNavigation} from '@react-navigation/core';
 export default function PlayerStats(params) {
 
   let player_id = params.route.params.params.player;
+  let returnScreen = params.route.params.params.screen;
   const [stats, setStats] = useState([]);
   const [countryStats, setCountryStats] = useState([]);
 
@@ -21,8 +22,8 @@ export default function PlayerStats(params) {
   }, [])
 
   const navigateBack = () => {
-     navigation.replace ('Nav', { screen: 'League', initial: false }) 
-  }
+        navigation.replace ('Nav', { screen: returnScreen, initial: false });
+    }
 
 if (stats.img!=""){
   return (

@@ -46,7 +46,7 @@ const Tab = createBottomTabNavigator();
       else if (route.name === 'League') {
         iconName = 'reorder-four-outline'; 
       }    
-      else if (route.name === 'Scorers') {
+      else if (route.name === 'Top Scorers') {
         iconName = 'football'; 
       }  
       else if (route.name === 'Scores') {
@@ -61,7 +61,7 @@ const Tab = createBottomTabNavigator();
     >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="League" component={LeagueScreen} />
-        <Tab.Screen name="Scorers" component={TopScorers} />
+        <Tab.Screen name="Top Scorers" component={TopScorers} />
         <Tab.Screen name="Scores" component={Scores} />
         <Tab.Screen name="Fixtures" component={Fixtures} />
         <Tab.Screen name="Int" component={Internationals} />
