@@ -28,11 +28,36 @@ export default function Scores() {
   }, []);
 
   const onLivePressed = () => {
-    console.log("Live");
+    fetch(
+      "https://app.sportdataapi.com/api/v1/soccer/matches?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=3291&status_code=1"
+    )
+      .then((response) => response.json())
+      .then((data) => setStats(data.data))
+      .catch((error) => {
+        Alert.alert("Error", error);
+      });
   };
 
   const onFinishedPressed = () => {
-    console.log("Finished");
+    fetch(
+      "https://app.sportdataapi.com/api/v1/soccer/matches?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=3291&status_code=3"
+    )
+      .then((response) => response.json())
+      .then((data) => setStats(data.data))
+      .catch((error) => {
+        Alert.alert("Error", error);
+      });
+  };
+
+  const onAllPressed = () => {
+    fetch(
+      "https://app.sportdataapi.com/api/v1/soccer/matches?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=3291"
+    )
+      .then((response) => response.json())
+      .then((data) => setStats(data.data))
+      .catch((error) => {
+        Alert.alert("Error", error);
+      });
   };
 
   const listSeparator = () => {
@@ -60,8 +85,17 @@ export default function Scores() {
         }}
       />
       <View style={globalStyles.scoresButtonContainer}>
-        <CustomButton text="Finished Games" onPress={onFinishedPressed} />
-        <CustomButton text="Live Scores" onPress={onLivePressed} />
+        <CustomButton type="SCORES" text="All Games" onPress={onAllPressed} />
+        <CustomButton
+          type="SCORES"
+          text="Finished"
+          onPress={onFinishedPressed}
+        />
+        <CustomButton
+          type="SCORES"
+          text="Live Scores"
+          onPress={onLivePressed}
+        />
       </View>
       <FlatList
         data={stats}

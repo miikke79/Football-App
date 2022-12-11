@@ -81,6 +81,12 @@ export const globalStyles = StyleSheet.create({
     fontSize: 16,
   },
 
+  touchableText_SCORES: {
+    color: "gold",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+
   touchableText_TERTIARY: {
     color: "gray",
     fontWeight: "bold",
@@ -175,6 +181,25 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
   },
 
+  buttonField_SCORES: {
+    borderWidth: 1,
+    borderColor: "gold",
+    borderRadius: 5,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginTop: 10,
+    width: "33%",
+    backgroundColor: "#0C2340",
+    alignItems: "center",
+  },
+
+  Picker: {
+    borderWidth: 1,
+    borderColor: "#0C2340",
+    color: "gold",
+    width: "100%",
+    backgroundColor: "gold",
+  },
   // T A B L E S
 
   dataHeader: {

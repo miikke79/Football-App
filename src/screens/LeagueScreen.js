@@ -3,7 +3,7 @@ import { View, Text, Alert, ScrollView, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { DataTable } from "react-native-paper";
 import { globalStyles } from "../styles/global";
-import CustomButton from "../components/CustomButton";
+import DropDownPicker from "react-native-dropdown-picker";
 import { useNavigation } from "@react-navigation/core";
 
 export default function LeagueScreen() {
@@ -11,11 +11,21 @@ export default function LeagueScreen() {
   const [standings2, setStandings2] = useState([]);
   const [team, setTeam] = useState("");
 
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("1975");
+  const [items, setItems] = useState([
+    { label: "Season 2018/19", value: "1499" },
+    { label: "Season 2019/20", value: "1495" },
+    { label: "Season 2020/21", value: "816" },
+    { label: "Season 2021/22", value: "1975" },
+  ]);
+
   const navigation = useNavigation();
 
   useEffect(() => {
     fetch(
-      "https://app.sportdataapi.com/api/v1/soccer/standings?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=1975"
+      "https://app.sportdataapi.com/api/v1/soccer/standings?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=" +
+        value
     )
       .then((response) => response.json())
       .then((data) => {
@@ -37,6 +47,28 @@ export default function LeagueScreen() {
         Alert.alert("Error", error);
       });
   }, []);
+
+  const pickSeason = (value) => {
+    fetch(
+      "https://app.sportdataapi.com/api/v1/soccer/standings?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=" +
+        value
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (value == 1975) {
+          setStandings(data.data.standings[1]),
+            setStandings2(data.data.standings[2]);
+        } else if (value == 816) {
+          setStandings(data.data.standings["championship-round"]),
+            setStandings2(data.data.standings["relegation-round"]);
+        } else {
+          setStandings(data.data.standings), setStandings2([]);
+        }
+      })
+      .catch((error) => {
+        Alert.alert("Error", error);
+      });
+  };
 
   const teamStats = (teamId) => {
     var teamName = "";
@@ -106,7 +138,6 @@ export default function LeagueScreen() {
                   navigation.replace("TeamStats", {
                     params: { team: standing.team_id },
                   });
-                  console.log(`${standing.team_id}`);
                 }}
               >
                 <DataTable.Cell style={globalStyles.dataTable}>
@@ -128,6 +159,19 @@ export default function LeagueScreen() {
         </DataTable>
         <StatusBar style="light" />
       </ScrollView>
+      <DropDownPicker
+        style={globalStyles.Picker}
+        placeholder="Select Season"
+        open={open}
+        value={value}
+        items={items}
+        setOpen={setOpen}
+        setValue={setValue}
+        setItems={setItems}
+        onChangeValue={(value) => {
+          pickSeason(value);
+        }}
+      />
     </View>
   );
 }

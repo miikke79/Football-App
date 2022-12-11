@@ -1,14 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  Image,
-  TextInput,
-  Button,
-  View,
-  Alert,
-  FlatList,
-} from "react-native";
+import { Text, View, Alert, FlatList } from "react-native";
 import { globalStyles } from "../styles/global";
 import { useNavigation } from "@react-navigation/core";
 
