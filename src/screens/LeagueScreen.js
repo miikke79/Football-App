@@ -12,7 +12,7 @@ export default function LeagueScreen() {
   const [team, setTeam] = useState("");
 
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("1975");
+  const [value, setValue] = useState();
   const [items, setItems] = useState([
     { label: "Season 2018/19", value: "1499" },
     { label: "Season 2019/20", value: "1495" },
@@ -24,8 +24,7 @@ export default function LeagueScreen() {
 
   useEffect(() => {
     fetch(
-      "https://app.sportdataapi.com/api/v1/soccer/standings?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=" +
-        value
+      "https://app.sportdataapi.com/api/v1/soccer/standings?apikey=74723a20-4e0d-11ed-8c29-118268eb2cdb&season_id=1975"
     )
       .then((response) => response.json())
       .then((data) => {

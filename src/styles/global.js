@@ -15,6 +15,7 @@ export const globalStyles = StyleSheet.create({
     paddingTop: 50,
     backgroundColor: "#0C2340",
     alignItems: "center",
+    width: "100%",
   },
 
   scrollContainer: {
@@ -73,6 +74,7 @@ export const globalStyles = StyleSheet.create({
     fontSize: 30,
     color: "white",
     marginTop: 15,
+    marginBottom: 30,
   },
 
   touchableText_PRIMARY: {
@@ -133,8 +135,6 @@ export const globalStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: "gold",
-    marginLeft: 20,
-    marginRight: 20,
   },
 
   listTextB: {
@@ -157,6 +157,14 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: "gold",
   },
 
+  Picker: {
+    borderWidth: 1,
+    borderColor: "#0C2340",
+    color: "gold",
+    width: "100%",
+    backgroundColor: "gold",
+  },
+
   // B U T T O N
 
   buttonField_PRIMARY: {
@@ -176,7 +184,7 @@ export const globalStyles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 40,
-    width: 200,
+    maxWidth: 280,
     backgroundColor: "#0C2340",
     alignItems: "center",
   },
@@ -193,13 +201,6 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
   },
 
-  Picker: {
-    borderWidth: 1,
-    borderColor: "#0C2340",
-    color: "gold",
-    width: "100%",
-    backgroundColor: "gold",
-  },
   // T A B L E S
 
   dataHeader: {
@@ -235,8 +236,10 @@ export const globalStyles = StyleSheet.create({
   },
 
   loginIcon: {
-    width: "70%",
-    height: 200,
+    width: "100%",
+    marginTop: 50,
+    marginBottom: 30,
+    height: 150,
     maxWidth: 300,
     borderColor: "#d35647",
     resizeMode: "contain",

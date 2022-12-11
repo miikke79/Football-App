@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, TextInput } from "react-native";
+import { View, TextInput } from "react-native";
 import { globalStyles } from "../styles/global";
 
 export default function CustomInput({

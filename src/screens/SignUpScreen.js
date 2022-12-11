@@ -38,8 +38,9 @@ export default function SignUpScreen() {
   return (
     <SafeAreaView style={globalStyles.loginContainer}>
       <ScrollView>
-        <Text style={globalStyles.title}>Create an account</Text>
         <View style={globalStyles.loginContainer}>
+          <Text style={globalStyles.title}>Create an account</Text>
+
           <CustomInput
             placeholder="First Name"
             value={username}
