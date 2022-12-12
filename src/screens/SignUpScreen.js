@@ -22,6 +22,10 @@ export default function SignUpScreen() {
         .then((userCredentials) => {
           const user = userCredentials.user;
           console.log(user.email);
+          setPassword("");
+          setPasswordAgain("");
+          setEmail("");
+          setUsername("");
         })
         .catch((error) => alert(error.message));
     } else {
